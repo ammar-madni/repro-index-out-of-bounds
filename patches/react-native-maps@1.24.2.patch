@@ -1,0 +1,26 @@
+diff --git a/android/src/main/java/com/rnmaps/maps/MapView.java b/android/src/main/java/com/rnmaps/maps/MapView.java
+index 6f4da9073223d2bd53ab220473088dfb94b43aca..cf0d2affee2b074c33f7837327c097a62e0223b1 100644
+--- a/android/src/main/java/com/rnmaps/maps/MapView.java
++++ b/android/src/main/java/com/rnmaps/maps/MapView.java
+@@ -1359,7 +1359,7 @@ public class MapView extends com.google.android.gms.maps.MapView implements Goog
+     int edgeBottomPadding;
+ 
+     public void applyBaseMapPadding(int left, int top, int right, int bottom) {
+-        if (super.getHeight() <= 0 || super.getWidth() <= 0) {
++        if (super.getHeight() <= 0 || super.getWidth() <= 0 || map == null) {
+             // the map is not laid out yet and calling setPadding() now has no effect
+             baseLeftMapPadding = left;
+             baseRightMapPadding = right;
+diff --git a/src/specs/NativeComponentMarker.ts b/src/specs/NativeComponentMarker.ts
+index 7ddfa0564b490dc5862254305d07a45df71cf998..c78d4309613fff6309912a1142c7ecb6581a1b36 100644
+--- a/src/specs/NativeComponentMarker.ts
++++ b/src/specs/NativeComponentMarker.ts
+@@ -106,7 +106,7 @@ export interface MarkerFabricNativeProps extends ViewProps {
+    * @platform iOS: Supported
+    * @platform Android: Supported
+    */
+-  image?: ImageSource | null;
++  image?: Readonly<{ uri?: string; }>;
+ 
+   /**
+    * The offset (in points) at which to place the callout bubble.

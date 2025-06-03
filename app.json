@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "repro-index-out-of-bounds",
+    "slug": "repro-index-out-of-bounds",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "repoimagepropissues",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "uk.co.reproindexoutofbounds"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "uk.co.reproindexoutofbounds"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-maps",
+        {
+          "iosGoogleMapsApiKey": "YOUR_KEY_HERE",
+          "androidGoogleMapsApiKey": "YOUR_KEY_HERE" // <-- Replace with your actual API key
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": false
+    }
+  }
+}
